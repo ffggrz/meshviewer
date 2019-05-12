@@ -22,10 +22,10 @@ module.exports = function () {
         'name': 'node.coordinates',
         'value': 'GeoURI'
       },
-      //    {
-      //      "name": "node.contact",
-      //      "value": "owner"
-      //    },
+      {
+        'name': 'node.contact',
+        'value': 'owner'
+      },
 
       // Examples for functions
       // {

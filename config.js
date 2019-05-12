@@ -4,106 +4,65 @@ module.exports = function () {
     'nodeInfos': [
       {
         'name': 'Clientstatistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=1&var-node={NODE_ID}&from=now-1d&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Clientstatistik für {NODE_ID} - weiteren Statistiken'
+        'href': '/grafana/dashboard/db/knoten-statistik?var-NodeName=All&var-NodeID={NODE_ID}',
+        'image': '/grafana/render/dashboard-solo/db/meshviewer-graphen?panelId=2&theme=light&width=650&height=350&var-NodeID={NODE_ID}&from=now-2d',
+        'title': 'Knoten {NODE_ID} - weiteren Statistiken'
       },
       {
         'name': 'Trafficstatistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=2&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Trafficstatistik für {NODE_ID} - weiteren Statistiken'
-      },
-      {
-        'name': 'Systemlast',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=4&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Systemlast für {NODE_ID} - weiteren Statistiken'
+        'href': '/grafana/dashboard/db/knoten-statistik?var-NodeName=All&var-NodeID={NODE_ID}',
+        'image': '/grafana/render/dashboard-solo/db/meshviewer-graphen?panelId=3&theme=light&width=650&height=350&var-NodeID={NODE_ID}&from=now-2d',
+        'title': 'Knoten {NODE_ID} - weiteren Statistiken'
       },
       {
         'name': 'Airtime',
-        'href': 'https://regensburg.freifunk.net/netz/statistik/node/{NODE_ID}/',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000026/node?panelId=5&from=now-1d&var-node={NODE_ID}&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Airtime für {NODE_ID} - weiteren Statistiken'
-      }
-    ],
-    'linkInfos': [
-      {
-        'name': 'Statistik für alle Links zwischen diese Knoten',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/nvSNqoHmz/link?panelId=7&var-node={SOURCE_ID}&var-nodetolink={TARGET_ID}&from=now-1d&&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Linkstatistik des letzten Tages, min und max aller Links zwischen diesen Knoten'
+        'href': '/grafana/dashboard/db/knoten-statistik?var-NodeName=All&var-NodeID={NODE_ID}',
+        'image': '/grafana/render/dashboard-solo/db/meshviewer-graphen?panelId=5&theme=light&width=650&height=350&var-NodeID={NODE_ID}&from=now-2d',
+        'title': 'Knoten {NODE_ID} - weiteren Statistiken'
       }
     ],
     'globalInfos': [
       {
-        'name': 'Globale Statistik',
-        'href': 'https://regensburg.freifunk.net/netz/statistik',
-        'image': 'https://grafana.regensburg.freifunk.net/render/d-solo/000000028/globals?panelId=2&from=now-7d&&width=650&height=350&theme=light&_t={TIME}',
-        'title': 'Globale Statistik - weiteren Statistiken'
+        'name': 'Wochenstatistik',
+        'href': '/grafana/dashboard/db/ubersicht',
+        'image': '/grafana/render/dashboard-solo/db/meshviewer-graphen?panelId=4&theme=light&width=650&height=350',
+        'title': 'Wochenstatistik - weiteren Statistiken'
+      },
+      {
+        'name': 'Jahresstatistik',
+        'href': '/grafana/dashboard/db/ubersicht',
+        'image': '/grafana/render/dashboard-solo/db/meshviewer-graphen?panelId=1&theme=light&width=650&height=350',
+        'title': 'Jahresstatistik - weiteren Statistiken'
       }
     ],
     // Array of data provider are supported
     'dataPath': [
-      'https://regensburg.freifunk.net/data/'
+      '/meshviewer/data/'
     ],
-    'siteName': 'Freifunk Regensburg',
+    'siteName': 'Freifunk Gera-Greiz',
     'mapLayers': [
       {
-        'name': 'Freifunk Regensburg',
-        // Please ask Freifunk Regensburg before using its tile server c- example with retina tiles
-        'url': 'https://{s}.tiles.ffrgb.net/{z}/{x}/{y}{retina}.png',
-        'config': {
-          'maxZoom': 20,
-          'subdomains': '1234',
-          'attribution': '<a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> <a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>',
-          'start': 6
-        }
-      },
-      {
-        'name': 'Freifunk Regensburg Night',
-        // Please ask Freifunk Regensburg before using its tile server - example with retina and dark tiles
-        'url': 'https://{s}.tiles.ffrgb.net/n/{z}/{x}/{y}{retina}.png',
-        'config': {
-          'maxZoom': 20,
-          'subdomains': '1234',
-          'attribution': ' <a href="http://www.openmaptiles.org/" target="_blank">&copy; OpenMapTiles</a> <a href="http://www.openstreetmap.org/about/" target="_blank">&copy; OpenStreetMap contributors</a>',
-          'mode': 'night',
-          'start': 19,
-          'end': 7
-        }
-      },
-      {
-        'name': 'OpenStreetMap.HOT',
-        'url': 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',
+        'name': 'Freifunk Gera-Greiz',
+        'url': 'https://tiles.freifunk-gera-greiz.de/{z}/{x}/{y}.png',
         'config': {
           'maxZoom': 19,
-          'attribution': '&copy; Openstreetmap France | &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          'attribution': '<a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
         }
       },
       {
         'name': 'HERE',
-        // Please use your own API key - Free plan is on right side after the pay plans
-        'url': 'https://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=YOUR_KEY&app_code=YOUR_CODE&lg=deu',
+        'url': 'https://{s}.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/{z}/{x}/{y}/256/png8?app_id=sIwIbz1DCjVDY2jdsnZ1&app_code=Uvcf9-uUVqoJA1_1LVSj8Q&lg=deu',
         'config': {
-          'attribution': 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+          'attribution': 'Map &copy; 1987-2019 <a href="http://developer.here.com">HERE</a>',
           'subdomains': '1234',
           'maxZoom': 20
         }
       },
       {
-        'name': 'Esri.WorldImagery',
-        'url': '//server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        'config': {
-          'maxZoom': 20,
-          'attribution': 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        }
-      },
-      {
         'name': 'HERE.hybridDay',
-        // Please use your own API key - Free plan is on right side after the pay plans
-        'url': 'https://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/{variant}/{z}/{x}/{y}/256/png8?app_id=YOUR_KEY&app_code=YOUR_CODE&lg=deu',
+        'url': 'https://{s}.aerial.maps.api.here.com/maptile/2.1/maptile/newest/{variant}/{z}/{x}/{y}/256/png8?app_id=sIwIbz1DCjVDY2jdsnZ1&app_code=Uvcf9-uUVqoJA1_1LVSj8Q&lg=deu',
         'config': {
-          'attribution': 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>',
+          'attribution': 'Map &copy; 1987-2019 <a href="http://developer.here.com">HERE</a>',
           'subdomains': '1234',
           'variant': 'hybrid.day',
           'maxZoom': 20
@@ -114,33 +73,25 @@ module.exports = function () {
     'fixedCenter': [
       // Northwest
       [
-        49.3522,
-        11.7752
+        50.9952,
+        11.6750
       ],
       // Southeast
       [
-        48.7480,
-        12.8917
+        50.5985,
+        12.3871
       ]
     ],
     'domainNames': [
       {
-        'domain': 'ffrgb-bat15',
-        'name': 'Regensburg'
-      },
-      {
-        'domain': 'ffrgb',
-        'name': 'Regensburg'
+        'domain': 'ffggrz',
+        'name': 'Gera-Greiz'
       }
     ],
     'linkList': [
       {
-        'title': 'Impressum',
-        'href': '/verein/impressum/'
-      },
-      {
-        'title': 'Datenschutz',
-        'href': '/verein/datenschutz/'
+        'title': 'Kontakt',
+        'href': '/kontakt'
       }
     ]
   };
